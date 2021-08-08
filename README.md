@@ -12,5 +12,6 @@ This version is built from scratch using Bootstrap.  Added Javascript for some f
 
 
 #Optional
+
 3. Create a User Dashboard for Valid Login (build static DB is js to test)
 4. Create the Contact and About US pages for fun.
