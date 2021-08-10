@@ -13,17 +13,17 @@
   <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="./imgs/pngwing.com.png" alt="" style="width: 75px;">EZ Bank</a>
+          <a class="navbar-brand" href="index.html"><img src="./imgs/pngwing.com.png" alt="" style="width: 75px;">EZ Bank</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse  justify-content-end" id="navbarNav">
             <ul class="navbar-nav" >
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link" aria-current="page" href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="register.html">Create an Account?</a>
+                <a class="nav-link active" href="register.html">Create an Account?</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">About US</a>
@@ -37,12 +37,17 @@
       </nav>
 
       <section class="masthead2">
+        <div class="container text-center d-none" id="emailSent">
+          <div class="text-white mb-4 text-center">
+            <h1>Thanks M*thaF*cker!</h1>
+          </div>
+        </div>
         <div class="container" >
           <div class="row">
             <div class="col">
               <img class="rounded float-lg-start" src="./imgs/imageonline-co-invertedimage_Mia.png" alt="">
             </div>
-            <div class="col bg-light p-lg-4">
+            <div id="form-col" class="col bg-light p-lg-4">
               <form id="registration-form" class="row g-3">
                 <div class="col-md-6">
                   <label for="inputEmail4" class="form-label">First</label>
@@ -85,7 +90,7 @@
                 </div>
                 <div class="col-12">
                   <label for="inputAddress2" class="form-label">Confirm Password</label>
-                  <input type="password" class="form-control" id="confrimPassword" >
+                  <input type="password" class="form-control" id="confirmPassword" >
                 </div>
                
                 <div class="col-12">

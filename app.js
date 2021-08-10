@@ -4,7 +4,7 @@ const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0
 loginBTN = document.querySelector('#login');
 loginForm = document.querySelector('#login-form');
 regBTN = document.querySelector('#register-btn')
-
+resetBTN = document.querySelector('#reset-pass-btn')
 formObj = {}
 
 const getFormValues = (formId) => {
@@ -25,10 +25,6 @@ const createSpan = (text) => {
     return newSpan
 }
 
-const removeError = (element) => {
-    target.prev(parent).find(element).remove();
-}
-
 
 
 const validateEmail = (input) => {
@@ -42,7 +38,9 @@ const validateEmail = (input) => {
         )
     }
     else {
-        document.querySelector('span .error').remove()
+        if (document.querySelector('span .error') !== null){
+            document.querySelector('span .error').remove()
+        }
     }
 }
 
@@ -52,7 +50,7 @@ if (loginBTN !== null){
         loginForm.parentNode.className -= ' d-none'
     })
 
-    loginForm.addEventListener('click', e => {
+    loginForm.lastElementChild.addEventListener('click', e => {
         formObj = getFormValues('login-form')
         validateEmail(formObj.inputEmail)
     })
@@ -63,7 +61,26 @@ if (regBTN !== null){
         formObj = getFormValues('registration-form')
         console.log(formObj)
         validateEmail(formObj.inputEmail)
+        if (formObj.inputPassword !== formObj.confirmPassword) {
+            document.querySelector('#inputPassword').parentNode.append(
+                createSpan('Passwords don\'t match')
+            )
+        }
+        if (document.querySelector('span .error') === null) {
+            document.querySelector('#form-col').className += ' d-none'
+            document.querySelector('#emailSent').className -= ' d-none'
+        }
     }, false)
 }
 
+if (resetBTN !== null){
+    resetBTN.addEventListener('click', e => {
+        input = document.querySelector('#inputEmail');
+        validateEmail(input.value)
+        if (document.querySelector('span .error') === null) {
+            document.querySelector('#form-row').className += ' d-none'
+            document.querySelector('#emailSent').className -= ' d-none'
+        }
+    })
+}
 
