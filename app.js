@@ -32,6 +32,7 @@ const validateEmail = (input) => {
     if (!input.match(emailRegex)){
         if (document.querySelector('span .error') !== null){
             document.querySelector('span .error').remove()
+            email.className = 'form-control is-invalid'
         }
         email.parentNode.append(
             createSpan('Please enter a valid email.')
@@ -40,9 +41,46 @@ const validateEmail = (input) => {
     else {
         if (document.querySelector('span .error') !== null){
             document.querySelector('span .error').remove()
+            email.className = 'form-control is-valid'
         }
     }
 }
+
+const validatePassword = (obj) => {
+    if (obj.inputPassword !== obj.confirmPassword || obj.inputPassword === "" || obj.confirmPassword === "") {
+        if (document.querySelector('span .error') !== null){
+            document.querySelector('span .error').remove()
+        }
+        document.querySelector(`#inputPassword`).className = 'form-control is-invalid'
+        document.querySelector(`#confirmPassword`).className = 'form-control is-invalid'
+        document.querySelector('#inputPassword').parentNode.append(
+            createSpan('Passwords don\'t match')
+        )
+    } else {
+        if (document.querySelector('span .error') !== null){
+            document.querySelector('span .error').remove()
+        }
+        document.querySelector(`#inputPassword`).className = 'form-control is-valid'
+        document.querySelector(`#confirmPassword`).className = 'form-control is-valid'
+    }
+}
+
+const formValid = () => {
+    inputs = document.querySelectorAll('form input');
+    isValid = false;
+    for (i=0; i<inputs.length; i++){
+        if (inputs[i].classList.contains('is-invalid')){
+            return
+        }
+        else{
+            isValid = true 
+        }
+    }
+    return isValid
+}
+
+
+
 
 if (loginBTN !== null){
     loginBTN.addEventListener('click', event => {
@@ -53,23 +91,43 @@ if (loginBTN !== null){
     loginForm.lastElementChild.addEventListener('click', e => {
         formObj = getFormValues('login-form')
         validateEmail(formObj.inputEmail)
+        if (formObj.inputPassword === ""){
+            if (document.querySelector('span .error') !== null && formObj.inputEmail !==""){
+                document.querySelector('span .error').remove()
+            }
+            document.querySelector(`#inputPassword`).className = 'form-control is-invalid';
+            document.querySelector('#inputPassword').parentNode.append(
+                createSpan('Passwords don\'t match')
+            )
+        } else {
+            document.querySelector(`#inputPassword`).className = 'form-control is-valid';
+            document.querySelector('span .error').remove()
+        }
+        formValid()
     })
 }
 
 if (regBTN !== null){
     regBTN.addEventListener('click', e => {
+       
         formObj = getFormValues('registration-form')
         console.log(formObj)
-        validateEmail(formObj.inputEmail)
-        if (formObj.inputPassword !== formObj.confirmPassword) {
-            document.querySelector('#inputPassword').parentNode.append(
-                createSpan('Passwords don\'t match')
-            )
+        for (const key in formObj) {
+            if (formObj[key] == ''){
+                document.querySelector(`#${key}`).className = 'form-control is-invalid'
+            }
+            else {
+                document.querySelector(`#${key}`).className = 'form-control is-valid'
+            }
         }
-        if (document.querySelector('span .error') === null) {
+        validateEmail(formObj.inputEmail)
+        validatePassword(formObj)
+
+        if (formValid() === true){
             document.querySelector('#form-col').className += ' d-none'
             document.querySelector('#emailSent').className -= ' d-none'
         }
+
     }, false)
 }
 
