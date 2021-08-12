@@ -14,18 +14,20 @@
 
         $sql = "INSERT INTO people (username,fname,lname,pass) VALUES (?,?,?,?)";
 
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param('ssss', $username, $fname, $lname, $password);
-        $stmt->execute();
-        
-        if(mysqli_affected_rows($conn) > 0){
-            $message = "Success! Proceed to Login!";
-            unset($fname);
-            unset($lname);
-            unset($pass);
-            header("Location: index.php");
+        if($stmt = mysqli_prepare($conn, $sql)) {
+            mysqli_stmt_bind_param($stmt, "ssss", $username, $fname, $lname, $password);
+            if(mysqli_stmt_execute($stmt)) {
+                echo "Records inserted successfully!";
+            } else {
+                echo "ERROR: Could not execute query: $sql. " . mysqli_error($conn);
+            }
         } else {
-            $message = "Failed " . mysqli_connect_error();
+            echo "ERROR: Could not prepare query: $sql. " . mysqli_error($conn);
         }
+        
+        mysqli_stmt_close($stmt);
+
+        mysqli_close($conn);
+
     }
 ?>
