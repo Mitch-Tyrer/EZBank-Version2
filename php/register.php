@@ -3,19 +3,19 @@
         header("Location: profile.php");
     }
 
-    include_once 'connect.php';
+    include_once './php/connect.php';
 
     if(isset($_POST['sca']) ) {
-        $username = trim($_POST['']);
-        $fname = trim($_POST['']);
-        $lname = trim($_POST['']);
-        $pass = trim($_POST['']);
+        $username = trim($_POST['username']);
+        $fname = trim($_POST['fname']);
+        $lname = trim($_POST['lname']);
+        $pass = trim($_POST['pass']);
         $password = hash('sha256', $pass);
 
         $sql = "INSERT INTO people (username,fname,lname,pass) VALUES (?,?,?,?)";
 
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param('ssss', $username,$fname,$lname,$password);
+        $stmt->bind_param('ssss', $username, $fname, $lname, $password);
         $stmt->execute();
         
         if(mysqli_affected_rows($conn) > 0){
