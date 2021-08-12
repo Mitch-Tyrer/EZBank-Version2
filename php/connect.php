@@ -1,19 +1,17 @@
 <?php
-$servername ='127.0.0.1';
-$dbname ='users';
-$dbuser = 'root';
-$dbpass = '';
+    $servername ='localhost';
+    $dbname ='users';
+    $dbuser = 'root';
+    $dbpass = '';
 
-$dsn = "mysql:host=$servername;dbname=$db;charset=utf8";
-$options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES   => false,
-];
+    $dsn = "mysql:host=$servername;dbname=$dbname;charset=utf8";
 
-try {
-    $pdo = new PDO($dsn, $dbuser, $dbpass, $options);
-} catch (\PDOException $e) {
-    thrownew \PDOException($e->getMessage(), (int)$e->getCode());
-}
+    $connect = new mysql_connect($dsn, $dbuser, $dbpass);
+
+    if(!$connect) {
+        die("Could not connect: " . mysql_error());
+    } else {
+        echo 'Successfully Connected!'
+        mysql_close($connect)
+    }
 ?>
