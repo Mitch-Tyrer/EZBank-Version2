@@ -1,17 +1,12 @@
 <?php
     $servername ='localhost';
-    $dbname ='users';
     $dbuser = 'root';
     $dbpass = '';
+    $dbname ='users';
 
-    $dsn = "mysql:host=$servername;dbname=$dbname;charset=utf8";
+    $conn = mysqli_connect($servername, $dbuser, $dbpass, $dbname);
 
-    $connect = new mysql_connect($dsn, $dbuser, $dbpass);
-
-    if(!$connect) {
-        die("Could not connect: " . mysql_error());
-    } else {
-        echo 'Successfully Connected!'
-        mysql_close($connect)
+    if(!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
     }
 ?>

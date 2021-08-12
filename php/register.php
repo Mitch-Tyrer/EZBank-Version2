@@ -1,6 +1,6 @@
 <?php
     if(isset($_SESSION['user'])!="") {
-        header("Location: profile.php")
+        header("Location: profile.php");
     }
 
     include_once 'connect.php';
@@ -12,7 +12,7 @@
         $pass = trim($_POST['pass']);
         $password = hash('sha256', $pass);
 
-        $query = "INSERT INTO people(usernam,fname,lname,pass) values(?,?,?,?)";
+        $query = "INSERT INTO people(username,fname,lname,pass) values(?,?,?,?)";
 
         $stmt = $connect->prepare($query);
         $stmt->execute([$username,$fname,$lname,$password]);
@@ -20,13 +20,13 @@
             
             if ($rowsAdded == 1) {
                 $message = "Success! Proceed to Login";
-                unset($fname)
-                unset($lname)
-                unset($pass)
+                unset($fname);
+                unset($lname);
+                unset($pass);
                 header("Location: login.php");
             }
             else {
-                $message = "Failed" . mysql_error()
+                $message = "Failed" . mysqli_connect_error();
             }
     }
 ?>
