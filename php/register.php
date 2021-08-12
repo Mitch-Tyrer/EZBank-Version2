@@ -6,27 +6,25 @@
     include_once 'connect.php';
 
     if(isset($_POST['sca']) ) {
-        $username = trim($_POST['username']);
-        $fname = trim($_POST['fname']);
-        $lname = trim($_POST['lname']);
-        $pass = trim($_POST['pass']);
+        $username = trim($_POST['']);
+        $fname = trim($_POST['']);
+        $lname = trim($_POST['']);
+        $pass = trim($_POST['']);
         $password = hash('sha256', $pass);
 
-        $query = "INSERT INTO people(username,fname,lname,pass) values(?,?,?,?)";
+        $sql = "INSERT INTO people (username,fname,lname,pass) VALUES (?,?,?,?)";
 
-        $stmt = $connect->prepare($query);
+        $stmt = $conn->prepare($sql);
         $stmt->execute([$username,$fname,$lname,$password]);
-        $rowsAdded = $stmt->rowCount();
-            
-            if ($rowsAdded == 1) {
-                $message = "Success! Proceed to Login";
-                unset($fname);
-                unset($lname);
-                unset($pass);
-                header("Location: login.php");
-            }
-            else {
-                $message = "Failed" . mysqli_connect_error();
-            }
+        
+        if(mysqli_affected_rows($conn) > 0){
+            $message = "Success! Proceed to Login!";
+            unset($fname);
+            unset($lname);
+            unset($pass);
+            header("LocationL index.php");
+        } else {
+            $message = "Failed " . mysqli_connect_error();
+        }
     }
 ?>

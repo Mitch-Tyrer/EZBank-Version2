@@ -84,11 +84,13 @@ const formValid = () => {
 
 if (loginBTN !== null){
     loginBTN.addEventListener('click', event => {
+        event.preventDefault()
         event.target.parentNode.className += ' d-none'
         loginForm.parentNode.className -= ' d-none'
     })
 
     loginForm.lastElementChild.addEventListener('click', e => {
+        e.preventDefault()
         formObj = getFormValues('login-form')
         validateEmail(formObj.inputEmail)
         if (formObj.inputPassword === ""){
@@ -109,7 +111,7 @@ if (loginBTN !== null){
 
 if (regBTN !== null){
     regBTN.addEventListener('click', e => {
-       
+       e.preventDefault()
         formObj = getFormValues('registration-form')
         console.log(formObj)
         for (const key in formObj) {
@@ -133,6 +135,7 @@ if (regBTN !== null){
 
 if (resetBTN !== null){
     resetBTN.addEventListener('click', e => {
+        e.preventDefault()
         input = document.querySelector('#inputEmail');
         validateEmail(input.value)
         if (document.querySelector('span .error') === null) {

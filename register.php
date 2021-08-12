@@ -81,7 +81,7 @@
           </div>
           <div id="form-col" class="col bg-light p-lg-4">
             <form
-              action="./php/register.php"
+              action="register.php"
               method="POST"
               id="registration-form"
               class="row g-3"
@@ -136,7 +136,7 @@
               </div>
 
               <div class="col-12">
-                <button name="sca" id="register-btn" type="button" class="btn btn-primary">
+                <button name="sca" id="register-btn" type="submit" class="btn btn-primary">
                   Register
                 </button>
               </div>
