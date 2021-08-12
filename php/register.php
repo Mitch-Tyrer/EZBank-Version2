@@ -18,6 +18,7 @@
             mysqli_stmt_bind_param($stmt, "ssss", $username, $fname, $lname, $password);
             if(mysqli_stmt_execute($stmt)) {
                 echo "Records inserted successfully!";
+                header("Location: index.php");
             } else {
                 echo "ERROR: Could not execute query: $sql. " . mysqli_error($conn);
             }
