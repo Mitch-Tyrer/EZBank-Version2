@@ -81,7 +81,7 @@ const formValid = () => {
 }
 
 
-form.addEventListener('click', e => {
+form.addEventListener('submit', e => {
      formObj = getFormValues('registration-form')
      for (const key in formObj) {
          if (formObj[key] == ''){
