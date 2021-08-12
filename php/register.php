@@ -15,14 +15,15 @@
         $sql = "INSERT INTO people (username,fname,lname,pass) VALUES (?,?,?,?)";
 
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$username,$fname,$lname,$password]);
+        $stmt->bind_param('ssss', $username,$fname,$lname,$password);
+        $stmt->execute();
         
         if(mysqli_affected_rows($conn) > 0){
             $message = "Success! Proceed to Login!";
             unset($fname);
             unset($lname);
             unset($pass);
-            header("LocationL index.php");
+            header("Location: index.php");
         } else {
             $message = "Failed " . mysqli_connect_error();
         }

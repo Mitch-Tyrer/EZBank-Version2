@@ -113,7 +113,6 @@ if (regBTN !== null){
     regBTN.addEventListener('click', e => {
        e.preventDefault()
         formObj = getFormValues('registration-form')
-        console.log(formObj)
         for (const key in formObj) {
             if (formObj[key] == ''){
                 document.querySelector(`#${key}`).className = 'form-control is-invalid'
