@@ -13,6 +13,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./stylesheet.css" />
+    <script src="./php/userAgent.js"></script>
     <title>EZBank</title>
   </head>
   <body>

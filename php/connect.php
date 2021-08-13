@@ -13,15 +13,13 @@
     ];
 
     try {
-        $conn = new PDO($dsn, $dbuser, $dbpass);
-        echo "Connected to $dbname at $servername successfully.";
-    } catch (PDOException $pe) {
-        die("Could Not Connect to the database $dbname : " . $pe->getMessage());
-    }
+        $pdo = new PDO($dsn, $dbuser, $dbpass, $options);
+   } catch (\PDOException $e) {
+        throw new \PDOException($e->getMessage(), (int)$e->getCode());
+   }
 
     // $conn = mysqli_connect($servername, $dbuser, $dbpass, $dbname);
 
     // if(!$conn) {
     //     die("Connection failed: " . mysqli_connect_error());
     // }
-?>
