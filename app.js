@@ -48,21 +48,32 @@ const validateEmail = (input) => {
 }
 
 const validatePassword = (obj) => {
-    if (obj.inputPassword !== obj.confirmPassword || obj.inputPassword === "" || obj.confirmPassword === "") {
-        if (document.querySelector('span .error') !== null){
-            document.querySelector('span .error').remove()
+    password = document.querySelector("#inputPassword");
+
+    if (document.querySelector('span .error') !== null){
+        document.querySelector('span .error').remove()
+    }
+
+    if (obj.confirmPassword !== null){
+        confirmPass = document.querySelector("#confirmPassword");
+        if (obj.inputPassword !== obj.confirmPassword || obj.inputPassword === "" || obj.confirmPassword === "") {
+            password.className = 'form-control is-invalid'
+            confirmPass.className = 'form-control is-invalid'
+            password.parentNode.append(
+                createSpan('Passwords don\'t match')
+            )
+        } else {
+            password.className = 'form-control is-valid'
+            confirmPass.className = 'form-control is-valid'
         }
-        document.querySelector(`#inputPassword`).className = 'form-control is-invalid'
-        document.querySelector(`#confirmPassword`).className = 'form-control is-invalid'
-        document.querySelector('#inputPassword').parentNode.append(
-            createSpan('Passwords don\'t match')
-        )
     } else {
-        if (document.querySelector('span .error') !== null){
-            document.querySelector('span .error').remove()
+        if(obj.inputPassword === '') {
+            password.className = 'form-control is-invalid'
+            password.parentNode.append(
+                createSpan('Passwords don\'t match'))
+        } else {
+            password.className = 'form-control is-valid'
         }
-        document.querySelector(`#inputPassword`).className = 'form-control is-valid'
-        document.querySelector(`#confirmPassword`).className = 'form-control is-valid'
     }
 }
 
@@ -82,7 +93,8 @@ const formValid = () => {
 
 
 form.addEventListener('submit', e => {
-     formObj = getFormValues('registration-form')
+     id = form.id;
+     formObj = getFormValues(id)
      for (const key in formObj) {
          if (formObj[key] == ''){
              document.querySelector(`#${key}`).className = 'form-control is-invalid'
@@ -95,8 +107,10 @@ form.addEventListener('submit', e => {
      validatePassword(formObj)
 
      if (formValid() === true){
-         document.querySelector('#form-col').className += ' d-none'
-         document.querySelector('#emailSent').className -= ' d-none'
+        if (document.querySelector('#form-col') !== null) {
+            document.querySelector('#form-col').className += ' d-none'
+            document.querySelector('#emailSent').className -= ' d-none'
+        }
      } else {
          e.preventDefault();
          return false;
@@ -108,9 +122,9 @@ form.addEventListener('submit', e => {
 
 
 if (loginBTN !== null){
-    loginBTN.addEventListener('click', event => {
-        event.preventDefault()
-        event.target.parentNode.className += ' d-none'
+    loginBTN.addEventListener('click', e => {
+        e.preventDefault()
+        e.target.parentNode.className += ' d-none'
         loginForm.parentNode.className -= ' d-none'
     })
 }

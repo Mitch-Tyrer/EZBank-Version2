@@ -11,6 +11,9 @@
     <title>Hello, world!</title>
   </head>
   <body>
+    <?php 
+      include './php/login.php'
+    ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#"><img src="./imgs/pngwing.com.png" alt="" style="width: 75px;">EZ Bank</a>
@@ -49,11 +52,11 @@
             <form action="./php/login.php" method="POST" id="login-form" class="bg-light p-lg-4">
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="text" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+                <input name="username" type="text" class="form-control" id="inputEmail" aria-describedby="emailHelp">
               </div>
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword">
+                <input name="pass" type="password" class="form-control" id="inputPassword">
               </div>
               <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">

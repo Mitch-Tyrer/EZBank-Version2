@@ -1,6 +1,6 @@
 <?php
     if(isset($_SESSION['user'])!="") {
-        header("Location: profile.php");
+        header("Location: ./php/profile.php");
     }
 
     include_once './php/connect.php';
@@ -18,7 +18,7 @@
             mysqli_stmt_bind_param($stmt, "ssss", $username, $fname, $lname, $password);
             if(mysqli_stmt_execute($stmt)) {
                 echo "Records inserted successfully!";
-                header("Location: index.php");
+                header("Location: ./php/login.php");
             } else {
                 echo "ERROR: Could not execute query: $sql. " . mysqli_error($conn);
             }
