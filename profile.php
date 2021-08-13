@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php include './php/profile.php' ?>
-<p>Welcome to the protected profile page…<?php echo $userRow['fname']; ?></p>
+    <p>Welcome to the protected profile page…<?php echo $userRow['fname']; ?></p>
     <p><a href="./php/logout.php">Logout Here</a></p>
 </body>
 </html>

@@ -12,5 +12,6 @@ $sql = "SELECT * FROM people WHERE userid=?";
 $stmt = $conn->prepare($sql);
 $stmt->execute([$_SESSION['user']]);
 
-$userRow = $stmt->fetch();
+$userRow = $stmt->fetch(PDO::FETCH_ASSOC);
+
 ?>
