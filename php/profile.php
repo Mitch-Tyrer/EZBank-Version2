@@ -10,6 +10,7 @@ if (!isset($_SESSION['username'])) {
 $sql = "SELECT * FROM people WHERE userid=?";
 
 $stmt = $conn->prepare($sql);
-$stmt->execute([$_SESSION['username']]);
+$stmt->execute([$_SESSION['user']]);
+
 $userRow = $stmt->fetch();
 ?>

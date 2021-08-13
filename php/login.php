@@ -16,7 +16,7 @@ if (isset($_POST['sca'])) {
         if($stmt->execute([$username])) {
             $stmt->store_result();
             if($stmt->mysqli_num_rows == 1){
-                $stmt->bind_result($userid, $username, $hashed_password);
+                $stmt->bind_result($userid, $username, $pass);
                 if($stmt->fetch()){
                     if(password_verify($password, $hashed_password)){
                         $_SESSION['user'] = $row['userid'];
