@@ -12,7 +12,7 @@ if ( isset($_POST['sca']) ) {
  $pass = trim($_POST['pass']);
  $password = hash('sha256', $pass);
 
- $query = "insert into people(username,fname,lname,pass) values(?, ?, ?, ?)";
+ $query = "INSERT INTO people(username,fname,lname,pass) VALUES(?, ?, ?, ?)";
  $stmt = $pdo->prepare($query);
  $stmt->execute([$username,$fname,$lname,$password]);
  $rowsAdded = $stmt->rowCount();
@@ -22,10 +22,11 @@ if ( isset($_POST['sca']) ) {
    unset($fname);
    unset($lname);
    unset($pass);
-   header("Location: login.php");
+   header("Location: index.php");
   }
   else
   {
-   $message = "Failed! For some reason";
+   $message = "Failed! " . $pdo->errorInfo();
   }
 }
+
