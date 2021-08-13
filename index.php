@@ -49,7 +49,7 @@
               </div>
           </div>
           <div class="d-none container align-items-center align-items-center justify-content-center">
-            <form action="./php/login.php" method="POST" id="login-form" class="bg-light p-lg-4">
+            <form action="login.php" method="POST" id="login-form" class="bg-light p-lg-4">
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input name="username" type="text" class="form-control" id="inputEmail" aria-describedby="emailHelp">
@@ -70,7 +70,7 @@
                   <a href="forgot.php">Forgot Password?</a>
                 </div>
               </div class="justify-content-center">
-              <button type="button" class="btn btn-primary">Submit</button>
+              <button name="sca" type="submit" class="btn btn-primary">Submit</button>
             </form>
           </div>
       </div>

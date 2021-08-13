@@ -1,26 +1,15 @@
 <?php
 session_start();
 require_once './php/connect.php';
-if (!isset($_SESSION['user'])) {
+
+if (!isset($_SESSION['username'])) {
     header("Location: index.php");
     exit;
 }
 
-$query = "SELECT * FROM people WHERE userid=?";
+$sql = "SELECT * FROM people WHERE userid=?";
 
-$stmt = $conn->prepare($query);
-$stmt->execute([$_SESSION['user']]);
+$stmt = $conn->prepare($sql);
+$stmt->execute([$_SESSION['username']]);
 $userRow = $stmt->fetch();
 ?>
-<html>
-
-<head>
-    <title>You are logged in!</title>
-</head>
-
-<body>
-    Welcome to the protected profile page…<?php echo $userRow['fname']; ?>
-    <p><a href="./php/logout.php">Logout Here</a></p>
-</body>
-
-</html>
