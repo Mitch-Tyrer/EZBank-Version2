@@ -1,12 +1,12 @@
 <?php
     session_start();
-    if(isset($_SESSION['user'])!="") {
+    if( isset($_SESSION['user'])!="") {
         header("Location: profile.php");
     }
 
     include_once './php/connect.php';
 
-    if(isset($_POST['sca']) ) {
+    if( isset($_POST['sca']) ) {
         $username = trim($_POST['username']);
         $fname = trim($_POST['fname']);
         $lname = trim($_POST['lname']);
@@ -16,7 +16,7 @@
         $sql = "INSERT INTO people (username,fname,lname,pass) VALUES (?,?,?,?)";
 
         $stmt = $conn->prepare($sql);
-        if($stmt->execute([$username, $fname, $lname, $pass])){
+        if($stmt->execute([$username, $fname, $lname, $password])){
                 echo "Records inserted successfully!";
                 unset($fname);
                 unset($lname);

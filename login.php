@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php include './php/login.php' ?>
-<h1></h1>
+<h1>HELLO!</h1>
 <p></p>
 </body>
 </html>

@@ -4,16 +4,17 @@
     $dbpass = '';
     $dbname ='users';
 
-    $dsn = "mysql:host=$servername;dbname=$dbname";
+    $dsn = "mysql:host=$servername;dbname=$dbname;charset=utf8";
+
     $options = [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES => false,
+        PDO::ATTR_EMULATE_PREPARES   => false,
     ];
 
     try {
         $conn = new PDO($dsn, $dbuser, $dbpass);
-        echo "Connected to $dbname at $host successfully.";
+        echo "Connected to $dbname at $servername successfully.";
     } catch (PDOException $pe) {
         die("Could Not Connect to the database $dbname : " . $pe->getMessage());
     }
