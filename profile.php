@@ -23,7 +23,7 @@
           <div class="justify-content-end" id="navbarNav">
             <ul class="navbar-nav" >
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Welcome, <?php echo $userRow['fname']; ?></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link d-none" href="register.php">Create an Account?</a>
