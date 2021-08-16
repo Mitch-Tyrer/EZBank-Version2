@@ -53,6 +53,7 @@
             <form action="login.php" method="POST" id="login-form" class="bg-light p-lg-4">
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <?php echo ($_SESSION['message'] !== '') ? '<span class="error"><p>Invalid Login</p></span>' : null; ?>
                 <input name="username" type="text" class="form-control" id="inputEmail" aria-describedby="emailHelp">
               </div>
               <div class="mb-3">
