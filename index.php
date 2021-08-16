@@ -43,13 +43,13 @@
       <section class="masthead">
         <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center" >
           <div class="d-flex justify-content-center">
-              <div class="text-center">
+              <div <?php echo ($msg =='') ? 'class="text-center"' : 'class="text-center d-none"';?>>
                   <h1 class="mx-auto my-0 text-uppercase">Ezeikiel Banking</h1>
                   <h2 class="mx-auto mt-2 mb-5" style="color: whitesmoke;">The path of the righteous man</h2>
                   <button id="login" type="button" class="btn btn-primary">Login</button>
               </div>
           </div>
-          <div class="d-none container align-items-center justify-content-center">
+          <div <?php echo ($msg =='') ? 'class="d-none container align-items-center justify-content-center"' : 'class="NaN"' ?>>
             <form action="login.php" method="POST" id="login-form" class="bg-light p-lg-4">
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>

@@ -21,6 +21,7 @@ if (isset($_POST['sca'])) {
         header("Location: profile.php");
     } else {
         $message = "Invalid Login";
+        header("Location: index.php");
     }
     $_SESSION['message'] = $message;
 }
