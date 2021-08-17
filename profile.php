@@ -34,6 +34,13 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Contact Us</a>
               </li>
+              <?php
+                if($userRow['role'] == "administrator") {
+                  echo '"<li class="nav-item">
+                    <a class="nav-link" href="/edit.php">Admin Tools</a>
+                  </li>"';
+                }
+              ?>
               <li class="nav-item">
                 <a class="nav-link" href="./php/logout.php">Log Out</a>
               </li>
