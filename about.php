@@ -17,7 +17,10 @@
     <title>EZBank</title>
   </head>
   <body>
-    <?php include './php/register.php';?>
+    <?php 
+    include './php/index.php';
+    include './php/login.php'
+  ?>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="index.php"
@@ -44,14 +47,14 @@
               <a class="nav-link" aria-current="page" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="register.php"
+              <a class="nav-link" href="register.php"
                 >Create an Account?</a
               >
             </li>
             <li class="nav-item">
               <a
-                class="nav-link"
-                href="about.php"
+                class="nav-link active"
+                href="#"
                 tabindex="-1"
                 aria-disabled="true"
                 >About US</a
@@ -66,82 +69,40 @@
     </nav>
 
     <section class="masthead2">
-      <div class="container text-center d-none" id="emailSent">
-        <div class="text-white mb-4 text-center">
-          <h1>Thanks M*thaF*cker!</h1>
-        </div>
-      </div>
       <div class="container">
         <div class="row">
           <div class="col">
             <img
               class="rounded float-lg-start"
-              src="./imgs/imageonline-co-invertedimage_Mia.png"
+              src="./imgs/About_Us_Left.png"
               alt=""
             />
           </div>
-          <div id="form-col" class="col bg-light p-lg-4">
-            <form
-              action="register.php"
-              method="POST"
-              id="registration-form"
-              class="row g-3"
-            >
-              <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">First</label>
-                <input
-                  name="fname"
-                  type="text"
-                  class="form-control"
-                  id="firstName"
-                />
-              </div>
-              <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Last</label>
-                <input
-                  name="lname"
-                  type="text"
-                  class="form-control"
-                  id="lastName"
-                />
-              </div>
-              <div class="col-12">
-                <label for="inputAddress" class="form-label">Email</label>
-                <input
-                  name="username"
-                  type="text"
-                  class="form-control"
-                  id="inputEmail"
-                  placeholder="username@domain.com"
-                />
-              </div>
-              <div class="col-12">
-                <label for="inputAddress2" class="form-label">Password</label>
-                <input
-                  name="pass"
-                  type="password"
-                  class="form-control"
-                  id="inputPassword"
-                  placeholder="Must be 8-12 Characters"
-                />
-              </div>
-              <div class="col-12">
-                <label for="inputAddress2" class="form-label"
-                  >Confirm Password</label
-                >
-                <input
-                  type="password"
-                  class="form-control"
-                  id="confirmPassword"
-                />
-              </div>
-
-              <div class="col-12">
-                <button name="sca" id="register-btn" type="submit" class="btn btn-primary">
-                  Register
-                </button>
-              </div>
-            </form>
+          <div class="col text-xxl-center text-white">
+            <h1>Ezekiel 25:17</h1>
+            <div class="container">
+              <p class="fs-4">
+                The path of the righteous man is beset on all sides <br />
+                By the inequities of the selfish and the tyranny of evil men
+                <br />
+                Blessed is he who, in the name of charity and good will <br />
+                Shepherds the weak through the valley of darkness <br />
+                For he is truly his brother's keeper and the finder of lost
+                children <br />
+                And I will strike down upon thee <br />
+                With great vengeance and furious anger Those who attempt to
+                poison and destroy my brothers <br />
+                And you will know my name is the Lord <br />
+                When I lay my vengeance upon thee <br />
+              </p>
+            </div>
+          </div>
+          <div class="col">
+            <img
+              class="rounded float-lg-start"
+              src="./imgs/About_Us_Right.png"
+              alt=""
+            />
           </div>
         </div>
       </div>

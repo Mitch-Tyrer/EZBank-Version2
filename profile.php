@@ -29,7 +29,7 @@
                 <a class="nav-link d-none" href="register.php">Create an Account?</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">About US</a>
+                <a class="nav-link" href="about.php" tabindex="-1" aria-disabled="true">About US</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="contact.php">Contact Us</a>

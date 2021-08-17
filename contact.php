@@ -50,8 +50,8 @@
             </li>
             <li class="nav-item">
               <a
-                class="nav-link disabled"
-                href="#"
+                class="nav-link"
+                href="about.php"
                 tabindex="-1"
                 aria-disabled="true"
                 >About US</a
