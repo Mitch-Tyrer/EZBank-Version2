@@ -55,7 +55,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<img class="rounded float-lg-start" src="./imgs/badmfer.png" alt="" style="width: 500px;" />
+					<img class="img-fluid rounded float-lg-start" src="./imgs/badmfer.png" alt="" style="margin-top: 75px;" />
 				</div>
 				<div id="admin-table" class="col bg-light p-lg-4">
 					<?php if (count($userArray) > 0) : ?>
