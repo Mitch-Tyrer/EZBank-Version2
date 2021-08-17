@@ -58,7 +58,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact Us</a>
+              <a class="nav-link" href="contact.php">Contact Us</a>
             </li>
           </ul>
         </div>

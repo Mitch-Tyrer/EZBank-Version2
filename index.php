@@ -33,7 +33,7 @@
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">About US</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact Us</a>
+                <a class="nav-link" href="contact.php">Contact Us</a>
               </li>
             </ul>
           </div>
