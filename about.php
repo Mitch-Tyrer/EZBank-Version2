@@ -19,7 +19,7 @@
   <body>
     <?php 
     include './php/index.php';
-    include './php/login.php'
+    
   ?>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
